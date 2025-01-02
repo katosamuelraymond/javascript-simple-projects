@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+    <div>
+        <img src="images/bio.jpg" alt="" style="width: 300px;" id="myImage">
+        <button id="previous">previous</button>
+        <button id="next">next</button>
+    </div>
+
+    <script>
+        "use strict"
+        let myImages = ["images/bio.jpg", "images/biology.jpg", "images/blog-2.jpg", "images/chem.jpg"];
+
+        let currentImage = 0;
+        document.getElementById('next').onclick = nextPhoto;
+
+        function nextPhoto() {
+            currentImage++;
+            if (currentImage >= 4) {
+                currentImage = 0;
+            }
+            document.getElementById('myImage').src = myImages[currentImage];
+        }
+
+        document.getElementById('previous').onclick = previousPhoto;
+
+        function previousPhoto() {
+            currentImage--;
+            if (currentImage <= 0) {
+                currentImage = myImages.length - 1;
+            }
+            document.getElementById('myImage').src = myImages[currentImage];
+        }
+    </script>
+</body>
+
+</html>
