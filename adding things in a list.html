@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add items on the list</title>
+
+
+</head>
+
+<body>
+    <div style="display: flex;">
+        <p style="margin: 10px;">Add items in the list</p>
+        <input type="text" id="item" style="margin: 10px;">
+        <button>add item</button>
+    </div>
+    <ul></ul>
+
+
+    <script>
+        let newlist = document.querySelector('ul');
+        let input = document.getElementById('item');
+        let btn = document.querySelector('button');
+
+        btn.addEventListener('click', function() {
+            let myitem = input.value;
+            input.value = '';
+
+            const listItem = document.createElement('li');
+            const listText = document.createElement('span');
+            const listBtn = document.createElement('button');
+
+
+            listItem.appendChild(listText);
+            listText.textContent = myitem;
+            listItem.appendChild(listBtn);
+            listBtn.textContent = 'delete';
+            newlist.appendChild(listItem);
+
+            listBtn.addEventListener('click', function() {
+                newlist.removeChild(listItem)
+            });
+            input.focus();
+
+        });
+    </script>
+</body>
+
+</html>
