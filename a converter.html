@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .bottom {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Miles to kilometers converter</h1>
+    <div class="center">
+        <p>type the number of miles and the click the button to convert it to kilometers</p>
+        <form method="post" action="" id="convert">
+            <input type="text" id="distance">
+            <input type="submit" value="convert Distance">
+        </form>
+    </div>
+    <div class="container bottom" id="answer">
+        <h2 class="invisible">answer goes here</h2>
+    </div>
+    <script>
+        document.getElementById('convert').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let distance = parseFloat(document.getElementById('distance').value);
+            if (distance) {
+                let conversion = distance * 1.609344.toFixed(3);
+                let newText = document.getElementById('answer');
+                newText.innerHTML = `<h2>${distance} Miles converted to Kilometers = ${conversion} </h2>`;
+                // alert(conversion);
+            } else {
+                let newText = document.getElementById('answer');
+                newText.innerHTML = `<h2> please provide a number! </h2>`;
+            }
+
+        })
+    </script>
+</body>
+
+</html>
